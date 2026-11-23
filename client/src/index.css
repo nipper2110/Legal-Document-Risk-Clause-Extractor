@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-charcoal-950: #151618;
+  --color-charcoal-900: #1e2023;
+  --color-charcoal-800: #2a2d31;
+  --color-charcoal-700: #3b3e43;
+  --color-paper: #ebe8e1;
+  --color-muted: #a3a099;
+  --color-space-300: #8fb4ff;
+  --color-space-400: #5a8cf0;
+  --color-space-500: #3b6fe0;
+  --color-space-900: #0f1a3a;
+  --font-serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia,
+    'Noto Serif Myanmar', 'Myanmar Sangam MN', serif;
+}
+
+/* Burmese script needs taller lines to avoid clipping stacked marks. */
+[lang='my'] {
+  line-height: 1.9;
+}
+
+[lang='my'] .tracking-widest {
+  letter-spacing: normal;
+}
+
+/* Charcoal sky with a blue glow at the top and a faint starfield. */
+body {
+  background-color: var(--color-charcoal-900);
+  background-image:
+    radial-gradient(ellipse 80% 45% at 50% -10%, rgb(59 111 224 / 0.28), transparent 70%),
+    radial-gradient(1px 1px at 23px 41px, rgb(255 255 255 / 0.55), transparent),
+    radial-gradient(1px 1px at 131px 97px, rgb(255 255 255 / 0.4), transparent),
+    radial-gradient(1.5px 1.5px at 77px 173px, rgb(143 180 255 / 0.55), transparent),
+    radial-gradient(1px 1px at 189px 22px, rgb(255 255 255 / 0.35), transparent);
+  background-size: 100% 100%, 211px 197px, 263px 241px, 307px 293px, 173px 181px;
+  background-attachment: fixed, scroll, scroll, scroll, scroll;
+}
+
+/* Print on white: swap the colour tokens so everything stays readable. */
+@media print {
+  :root {
+    --color-paper: #111111;
+    --color-muted: #444444;
+    --color-charcoal-700: #bbbbbb;
+    --color-charcoal-800: #eeeeee;
+    --color-space-300: #1d4ed8;
+    --color-red-400: #b91c1c;
+    --color-yellow-400: #a16207;
+    --color-green-400: #15803d;
+  }
+  body {
+    background: white;
+  }
+}
